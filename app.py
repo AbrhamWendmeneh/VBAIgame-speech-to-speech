@@ -24,7 +24,6 @@ import speech_recognition as sr
 import sounddevice as sd  # type: ignore
 from openai import AsyncOpenAI
 from openai.types.beta.realtime.session import Session
-import threading
 import queue
 import websocket
 from pydub.playback import play
@@ -32,6 +31,10 @@ from pydub import AudioSegment
 import io
 import pyaudio
 
+from typing import Any, cast
+
+from openai.resources.beta.realtime.realtime import AsyncRealtimeConnection
+SAMPLE_RATE = 16000
 from audio_util import CHANNELS, SAMPLE_RATE, AudioPlayerAsync
 
 # Load environment variables
@@ -177,24 +180,6 @@ if not api_key:
 client = OpenAI(api_key=api_key)
 print("[OpenAI] API key loaded successfully.")
 
-import os
-import json
-import pygame
-import math
-import numpy as np
-import sys
-import textwrap
-from openai import OpenAI
-from dotenv import load_dotenv
-import time
-import base64
-import threading
-import queue
-import websocket
-from pydub.playback import play
-from pydub import AudioSegment
-import io
-import pyaudio
 # Load environment variables
 load_dotenv()
 # Ensure OpenAI API Key is loaded
@@ -204,42 +189,6 @@ if not api_key:
     sys.exit(1)
 client = OpenAI(api_key=api_key)
 print("[OpenAI] API key loaded successfully.")
-
-
-import asyncio
-import base64
-import threading
-from typing import Any, cast
-
-import pygame
-from pygame.locals import *
-from OpenGL.GL import *
-from OpenGL.GLU import *
-
-import sounddevice as sd  # type: ignore
-from openai import AsyncOpenAI
-from openai.types.beta.realtime.session import Session
-from openai.resources.beta.realtime.realtime import AsyncRealtimeConnection
-
-SAMPLE_RATE = 16000
-
-
-import asyncio
-import base64
-import threading
-from typing import Any, cast
-import sys
-
-import pygame
-from pygame.locals import *
-from OpenGL.GL import *
-from OpenGL.GLU import *
-
-import sounddevice as sd  # type: ignore
-
-from openai import AsyncOpenAI
-from openai.types.beta.realtime.session import Session
-from openai.resources.beta.realtime.realtime import AsyncRealtimeConnection
 
 # Example constants for the game
 WINDOW_WIDTH = 800
